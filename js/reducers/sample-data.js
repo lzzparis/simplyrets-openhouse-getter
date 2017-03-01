@@ -7,7 +7,7 @@ var SAMPLE_DATA = [
     mlsId: Math.floor(Math.random() * 1000000),
     listDate: new Date(),
     listPrice: 100000,
-    photos:["http://placekitten.com/800/600"],
+    photos:["http://placekitten.com/80/60"],
   },
   {
     stories: 2,
@@ -17,7 +17,7 @@ var SAMPLE_DATA = [
     mlsId: Math.floor(Math.random() * 1000000),
     listDate: new Date(),
     listPrice: 234000,
-    photos:["http://placekitten.com/400/600"],
+    photos:["http://placekitten.com/100/60"],
   },
   {
     stories: 11,
@@ -37,7 +37,7 @@ var SAMPLE_DATA = [
     mlsId: Math.floor(Math.random() * 1000000),
     listDate: new Date(),
     listPrice: 100010010,
-    photos:["http://placekitten.com/800/6500"],
+    photos:["http://placekitten.com/200/10"],
   },
 ];
 
