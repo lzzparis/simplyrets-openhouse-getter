@@ -1,7 +1,7 @@
 {
-  "name": "thinkful-react-starter",
+  "name": "simplyrets-openhouse-getter",
   "version": "0.0.1",
-  "description": "A React template",
+  "description": "Lists open houses found using the SimplyRETS API",
   "main": "js/index.js",
   "scripts": {
     "start": "http-server -c-1 build",
@@ -37,7 +37,7 @@
     "watch:assets": "run-s build:assets _watch:assets",
     "_watch:assets": "chokidar assets/**/* -c \"npm run build:assets\""
   },
-  "author": "Joe Turner <joe@oampo.co.uk>",
+  "author": "Lizzie Paris <lzz.paris@gmail.com>",
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-cli": "^6.11.4",
