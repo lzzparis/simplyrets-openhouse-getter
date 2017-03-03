@@ -3,7 +3,6 @@ var React = require('react');
 var actions = require('../actions/index');
 
 var initialState = {
-  userId: 0,
   listings: [],
   fetchStatus: null
 };

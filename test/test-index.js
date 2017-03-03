@@ -83,7 +83,7 @@ describe('Reducer', function() {
     var actualState = {listings: SAMPLE_DATA, fetchStatus: 200};
     //clear state
     actualState = reducer.reducer(actualState, actions.resetState());
-    var expectedState = {userId: 0, listings: [], fetchStatus: null};
+    var expectedState = {listings: [], fetchStatus: null};
 
     checkState(actualState, expectedState);
   });
@@ -91,7 +91,7 @@ describe('Reducer', function() {
   it('should handle FETCH_OPEN_HOUSES_SUCCESS', function() {
     var initialState = reducer.initialState;
     var actualState = reducer.reducer(initialState, actions.fetchOpenHousesSuccess(200, SAMPLE_DATA));
-    var expectedState = {userId: 0, listings: SAMPLE_DATA, fetchStatus: 200};
+    var expectedState = {listings: SAMPLE_DATA, fetchStatus: 200};
 
     checkState(actualState, expectedState);
   });
@@ -99,7 +99,7 @@ describe('Reducer', function() {
   it('should handle FETCH_OPEN_HOUSES_ERROR', function() {
     var initialState = reducer.initialState;
     var actualState = reducer.reducer(initialState, actions.fetchOpenHousesError(400));
-    var expectedState = {userId: 0, listings: [], fetchStatus: 400};
+    var expectedState = {listings: [], fetchStatus: 400};
 
     checkState(actualState, expectedState);
   })
