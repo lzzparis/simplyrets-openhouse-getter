@@ -1,7 +1,6 @@
 var React = require('react');
 
 var actions = require('../actions/index');
-var SAMPLE_DATA = require('./sample-data');
 
 var initialState = {
   userId: 0,
