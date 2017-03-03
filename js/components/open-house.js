@@ -18,8 +18,15 @@ var OpenHouse = React.createClass({
   addToDatabase: function() {
     var database = firebase.database();
     var userId = window.localStorage.getItem('userId');  
+    var mlsId = this.props.listing.mlsId; 
 
-    database.ref('users/' + userId).push(this.props.listing.mlsId);
+    database.ref('users/' + userId).push(mlsId, function(error) {
+      if (error) {
+        alert('Data could not be saved at this time');
+      } else {
+        console.log('mlsId ' + mlsId + ' saved successfully at users/' + userId);
+      }
+    });
   },
   render: function() {
     //Keep this business logic here because it's all formatting 
