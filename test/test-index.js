@@ -67,25 +67,37 @@ describe('App component', function() {
 var actions = require('../js/actions/index');
 var reducer = require('../js/reducers/index');
 
+var checkState = function checkState(actual, expected) {
+  actual = JSON.stringify(actual);
+  expected = JSON.stringify(expected);
+  return actual.should.equal(expected);
+}
+
 describe('Reducer', function() {
   it('should handle RESET_STATE', function() {
     //set some state
-    var actualState = {listings: SAMPLE_DATA};
+    var actualState = {listings: SAMPLE_DATA, fetchStatus: 200};
     //clear state
-    actualState = reducer(actualState, actions.resetState());
-    actualState = JSON.stringify(actualState);
-    var expectedState = {userId: 0, listings: []};
-    expectedState = JSON.stringify(expectedState);
-    actualState.should.equal(expectedState);
+    actualState = reducer.reducer(actualState, actions.resetState());
+    var expectedState = {userId: 0, listings: [], fetchStatus: null};
 
+    checkState(actualState, expectedState);
   });
 
   it('should handle FETCH_OPEN_HOUSES_SUCCESS', function() {
-    var actualState = reducer({}, actions.fetchOpenHousesSuccess(SAMPLE_DATA));
-    actualState = JSON.stringify(actualState);
-    var expectedState = {listings: SAMPLE_DATA};
-    expectedState = JSON.stringify(expectedState);
-    actualState.should.equal(expectedState);
+    var initialState = reducer.initialState;
+    var actualState = reducer.reducer(initialState, actions.fetchOpenHousesSuccess(200, SAMPLE_DATA));
+    var expectedState = {userId: 0, listings: SAMPLE_DATA, fetchStatus: 200};
+
+    checkState(actualState, expectedState);
   });
+
+  it('should handle FETCH_OPEN_HOUSES_ERROR', function() {
+    var initialState = reducer.initialState;
+    var actualState = reducer.reducer(initialState, actions.fetchOpenHousesError(400));
+    var expectedState = {userId: 0, listings: [], fetchStatus: 400};
+
+    checkState(actualState, expectedState);
+  })
 
 });

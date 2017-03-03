@@ -8,10 +8,19 @@ var resetState = function resetState() {
 };
 
 var FETCH_OPEN_HOUSES_SUCCESS = 'FETCH_OPEN_HOUSES_SUCCESS';
-var fetchOpenHousesSuccess = function fetchOpenHousesSuccess(listings) {
+var fetchOpenHousesSuccess = function fetchOpenHousesSuccess(status, listings) {
   return {
     type: FETCH_OPEN_HOUSES_SUCCESS,
+    status: status,
     listings: listings
+  };
+};
+
+var FETCH_OPEN_HOUSES_ERROR = 'FETCH_OPEN_HOUSES_ERROR';
+var fetchOpenHousesError = function fetchOpenHousesError(status) {
+  return {
+    type: FETCH_OPEN_HOUSES_ERROR,
+    status: status
   };
 };
 
@@ -19,8 +28,7 @@ var fetchOpenHouses = function fetchOpenHouses() {
   return function(dispatch) {
     var url = 'https://api.simplyrets.com/openhouses';
     var headers = {
-        'Authorization': 'Basic '+btoa('simplyrets:simplyrets'),
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Authorization': 'Basic ' + btoa('simplyrets:simplyrets')
     };
 
     fetch(url, {
@@ -28,15 +36,21 @@ var fetchOpenHouses = function fetchOpenHouses() {
       headers: headers
     })
     .then(function(response) {
+      if (response.status !== 200) {
+        throw response.status;
+      }
       return response.json();
     })
     .then(function(response) {
       var listings = response.map(function(openHouse) {
         return openHouse.listing;
-      });
-
-      return dispatch(fetchOpenHousesSuccess(listings));
+      })
+      return dispatch(fetchOpenHousesSuccess(response.status, listings));
+    })
+    .catch(function(status) {
+      return dispatch(fetchOpenHousesError(status));
     });
+
   };
 };
 
@@ -45,3 +59,5 @@ exports.resetState = resetState;
 exports.fetchOpenHouses = fetchOpenHouses;
 exports.fetchOpenHousesSuccess = fetchOpenHousesSuccess;
 exports.FETCH_OPEN_HOUSES_SUCCESS = FETCH_OPEN_HOUSES_SUCCESS;
+exports.fetchOpenHousesError = fetchOpenHousesError;
+exports.FETCH_OPEN_HOUSES_ERROR = FETCH_OPEN_HOUSES_ERROR;
