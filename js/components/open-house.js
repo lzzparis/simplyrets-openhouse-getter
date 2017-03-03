@@ -15,7 +15,7 @@ var config = {
 firebase.initializeApp(config);
 
 var OpenHouse = React.createClass({
-  componentDidMount: function() {
+  addToDatabase: function() {
     var database = firebase.database();
     var userId = window.localStorage.getItem('userId');  
 
@@ -37,7 +37,7 @@ var OpenHouse = React.createClass({
 
     return (
       <ul className="open-house">
-        <div className="open-house-image" style={backgroundImage}></div>
+        <div onClick={this.addToDatabase} className="open-house-image" style={backgroundImage}></div>
         <li className="open-house-detail open-house-price">{prettyPrice}</li>
         <li className="open-house-detail open-house-beds">Bedrooms: {this.props.listing.property.bedrooms}</li>
         <li className="open-house-detail open-house-full-bath">Full baths: {this.props.listing.property.bathsFull}</li>
