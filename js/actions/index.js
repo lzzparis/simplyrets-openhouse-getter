@@ -30,14 +30,16 @@ var fetchOpenHouses = function fetchOpenHouses() {
     var headers = {
         'Authorization': 'Basic ' + btoa('simplyrets:simplyrets')
     };
+    var status = null;
 
     fetch(url, {
       method: 'get',
       headers: headers
     })
     .then(function(response) {
-      if (response.status !== 200) {
-        throw response.status;
+      status = response.status;
+      if (status !== 200) {
+        throw error;
       }
       return response.json();
     })
@@ -45,9 +47,9 @@ var fetchOpenHouses = function fetchOpenHouses() {
       var listings = response.map(function(openHouse) {
         return openHouse.listing;
       })
-      return dispatch(fetchOpenHousesSuccess(response.status, listings));
+      return dispatch(fetchOpenHousesSuccess(status, listings));
     })
-    .catch(function(status) {
+    .catch(function(error) {
       return dispatch(fetchOpenHousesError(status));
     });
 

@@ -13,6 +13,10 @@ html, body {
   box-sizing: inherit;
 }
 
+.hidden {
+  display: none;
+}
+
 .banner {
   text-align: center;
 }

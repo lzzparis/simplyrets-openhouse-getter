@@ -12,7 +12,7 @@ var OpenHouseList = React.createClass({
     this.props.dispatch(actions.fetchOpenHouses());
   },
   componentWillReceiveProps: function(nextProps) {
-    console.log(nextProps);
+    console.log('np',nextProps);
     if(nextProps.fetchStatus !== 200) {
       this.setState({ hideErrorClass: '' });
     } else {
@@ -26,7 +26,7 @@ var OpenHouseList = React.createClass({
     });
     return (
       <div className="open-house-list">
-        <p className={"open-house-list-error" + this.state.hideErrorClass}>
+        <p className={"open-house-list-error " + this.state.hideErrorClass}>
           Failed to retrieve results :(
         </p>
         {list}
