@@ -1,10 +1,13 @@
-var React = require("react");
+var React = require('react');
+
+var Banner = require('./banner');
+var OpenHouseListContainer = require('./open-house-list-container');
 
 var App = function App(props) {
   return (
-    <div className='app'>
-      <h1>Look at me!</h1>
-      <p>I'm an app!</p>
+    <div className="app">
+      <Banner />
+      <OpenHouseListContainer />
     </div>
   );
 };

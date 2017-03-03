@@ -1,9 +1,14 @@
-var React = require("react");
-var ReactDOM = require("react-dom");
-var Provider = require("react-redux").Provider;
+var React = require('react');
+var ReactDOM = require('react-dom');
+var Provider = require('react-redux').Provider;
 
-var routes = require("./components/routes");
+var store = require('./store');
+var routes = require('./components/routes');
 
-document.addEventListener("DOMContentLoaded", function() {
-  ReactDOM.render(routes, document.getElementById("app"));
+document.addEventListener('DOMContentLoaded', function() {
+  ReactDOM.render(
+    <Provider store={store}>
+      {routes}
+    </Provider>
+    , document.getElementById('app'));
 });
