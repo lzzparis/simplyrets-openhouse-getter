@@ -12,7 +12,6 @@ var OpenHouseList = React.createClass({
     this.props.dispatch(actions.fetchOpenHouses());
   },
   componentWillReceiveProps: function(nextProps) {
-    console.log('np',nextProps);
     if(nextProps.fetchStatus !== 200) {
       this.setState({ hideErrorClass: '' });
     } else {

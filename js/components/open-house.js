@@ -22,7 +22,8 @@ var OpenHouse = React.createClass({
     database.ref('users/' + userId).push(this.props.listing.mlsId);
   },
   render: function() {
-    //TODO - refactor: move this business logic to redux side
+    //Keep this business logic here because it's all formatting 
+    //  (view-related)
     var formatter = new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -39,10 +40,10 @@ var OpenHouse = React.createClass({
       <ul className="open-house">
         <div onClick={this.addToDatabase} className="open-house-image" style={backgroundImage}></div>
         <li className="open-house-detail open-house-price">{prettyPrice}</li>
-        <li className="open-house-detail open-house-beds">Bedrooms: {this.props.listing.property.bedrooms}</li>
-        <li className="open-house-detail open-house-full-bath">Full baths: {this.props.listing.property.bathsFull}</li>
-        <li className="open-house-detail open-house-half-bath">Half baths: {this.props.listing.property.bathsHalf}</li>
-        <li className="open-house-detail open-house-stories">Stories: {this.props.listing.property.stories}</li>
+        <li className="open-house-detail open-house-beds">Bedrooms: {this.props.listing.bedrooms}</li>
+        <li className="open-house-detail open-house-full-bath">Full baths: {this.props.listing.bathsFull}</li>
+        <li className="open-house-detail open-house-half-bath">Half baths: {this.props.listing.bathsHalf}</li>
+        <li className="open-house-detail open-house-stories">Stories: {this.props.listing.stories}</li>
         <li className="open-house-detail open-house-mls-id">MLS ID: {this.props.listing.mlsId}</li>
         <li className="open-house-detail open-house-list-date">Listed: {prettyListDate}</li>
       </ul>

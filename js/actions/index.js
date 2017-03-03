@@ -45,8 +45,19 @@ var fetchOpenHouses = function fetchOpenHouses() {
     })
     .then(function(response) {
       var listings = response.map(function(openHouse) {
-        return openHouse.listing;
-      })
+        var listing = openHouse.listing;
+        return   {
+          stories: listing.property.stories,
+          bedrooms: listing.property.bedrooms,
+          halfBaths: listing.property.bathsHalf,
+          fullBaths: listing.property.bathsFull,
+          mlsId: listing.mlsId,
+          listDate: listing.listDate,
+          listPrice: listing.listPrice,
+          photos: listing.photos
+        }
+
+      });
       return dispatch(fetchOpenHousesSuccess(status, listings));
     })
     .catch(function(error) {

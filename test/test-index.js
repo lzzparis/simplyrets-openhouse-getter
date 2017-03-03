@@ -35,7 +35,11 @@ describe('OpenHouseList component', function() {
 
   it('should instantiate OpenHouseLists based on listings prop', function() {
     var children = OpenHouseListInstance.node.props.children;
-    children.forEach(function(child, i) {
+    //error parapraph
+    children[0].type.should.equal('p');
+
+    //OpenHouse instances
+    children[1].forEach(function(child, i) {
       child.type.displayName.should.equal('OpenHouse');
       child.props.listing.should.equal(SAMPLE_DATA[i]);
     });
