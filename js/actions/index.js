@@ -41,5 +41,7 @@ var fetchOpenHouses = function fetchOpenHouses() {
 };
 
 exports.RESET_STATE = RESET_STATE;
+exports.resetState = resetState;
 exports.fetchOpenHouses = fetchOpenHouses;
+exports.fetchOpenHousesSuccess = fetchOpenHousesSuccess;
 exports.FETCH_OPEN_HOUSES_SUCCESS = FETCH_OPEN_HOUSES_SUCCESS;

@@ -64,3 +64,28 @@ describe('App component', function() {
 })
 
 // Test actions/reducers
+var actions = require('../js/actions/index');
+var reducer = require('../js/reducers/index');
+
+describe('Reducer', function() {
+  it('should handle RESET_STATE', function() {
+    //set some state
+    var actualState = {listings: SAMPLE_DATA};
+    //clear state
+    actualState = reducer(actualState, actions.resetState());
+    actualState = JSON.stringify(actualState);
+    var expectedState = {userId: 0, listings: []};
+    expectedState = JSON.stringify(expectedState);
+    actualState.should.equal(expectedState);
+
+  });
+
+  it('should handle FETCH_OPEN_HOUSES_SUCCESS', function() {
+    var actualState = reducer({}, actions.fetchOpenHousesSuccess(SAMPLE_DATA));
+    actualState = JSON.stringify(actualState);
+    var expectedState = {listings: SAMPLE_DATA};
+    expectedState = JSON.stringify(expectedState);
+    actualState.should.equal(expectedState);
+  });
+
+});
