@@ -12,15 +12,15 @@ var OpenHouse = function OpenHouse(props) {
   var prettyPrice = formatter.format(props.listing.listPrice);
 
   return (
-    <ul className='open-house'>
+    <ul className="open-house">
       <img src={props.listing.photos[0]} />
-      <li>{prettyPrice}</li>
-      <li>Bedrooms: {props.listing.bedrooms}</li>
-      <li>Full baths: {props.listing.bathsFull}</li>
-      <li>Half baths: {props.listing.bathsHalf}</li>
-      <li>Stories: {props.listing.stories}</li>
-      <li>MLS ID: {props.listing.mlsId}</li>
-      <li>Listed: {prettyListDate}</li>
+      <li className="open-house-detail open-house-price">{prettyPrice}</li>
+      <li className="open-house-detail open-house-beds">Bedrooms: {props.listing.bedrooms}</li>
+      <li className="open-house-detail open-house-full-bath">Full baths: {props.listing.bathsFull}</li>
+      <li className="open-house-detail open-house-half-bath">Half baths: {props.listing.bathsHalf}</li>
+      <li className="open-house-detail open-house-stories">Stories: {props.listing.stories}</li>
+      <li className="open-house-detail open-house-mls-id">MLS ID: {props.listing.mlsId}</li>
+      <li className="open-house-detail open-house-list-date">Listed: {prettyListDate}</li>
     </ul>
   );
 };
