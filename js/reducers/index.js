@@ -1,11 +1,10 @@
 var React = require('react');
 
 var actions = require('../actions/index');
-var SAMPLE_DATA = require('./sample-data');
 
 var initialState = {
-  userId: 0,
-  listings: [] 
+  listings: [],
+  fetchStatus: null
 };
 
 var reducer = function(state, action) {
@@ -13,10 +12,13 @@ var reducer = function(state, action) {
   if (action.type === actions.RESET_STATE) {
     return initialState;
   } else if (action.type === actions.FETCH_OPEN_HOUSES_SUCCESS) {
-    return Object.assign({}, state, {listings: action.listings});
+    return Object.assign({}, state, {listings: action.listings}, {fetchStatus: action.status});
+  } else if (action.type === actions.FETCH_OPEN_HOUSES_ERROR) {
+    return Object.assign({}, state, {fetchStatus: action.status});
   }
 
   return state;
 };
 
-module.exports = reducer;
+exports.reducer = reducer;
+exports.initialState = initialState;
