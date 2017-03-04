@@ -25,6 +25,7 @@ On page load the following happens:
 1. The top-level App checks whether there is a userId stored in the browser's localStorage.  If not, it generates a random 8-digit integer and stores it there. 
 2. The OpenHouseList component dispatches a fetch action that performs the following GET request:
     * URI: https://api.simplyrets.com/openhouses
+    * URI:
     * Credentials (from API for pulling test data)
         * Username: simplyrets
         * Password: simplyrets
