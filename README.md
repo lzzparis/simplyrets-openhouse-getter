@@ -25,12 +25,12 @@ On page load the following happens:
 1. The top-level App checks whether there is a userId stored in the browser's localStorage.  If not, it generates a random 8-digit integer and stores it there. 
 2. The OpenHouseList component dispatches a fetch action that performs the following GET request:
     * URI: https://api.simplyrets.com/openhouses
-    * URI:
     * Credentials (from API for pulling test data)
         * Username: simplyrets
         * Password: simplyrets
 3. When this data returns,
     * On success (200): save response status and relevant data to the store:
+
         ```
         listing: {
           property: {
@@ -45,6 +45,7 @@ On page load the following happens:
           photos
         }
         ```
+
     * On error (all other): save response status to the store
 4. OpenHouseList rerenders based on updated store data, instantiating OpenHouse components if possible
 
