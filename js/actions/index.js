@@ -49,8 +49,8 @@ var fetchOpenHouses = function fetchOpenHouses() {
         return   {
           stories: listing.property.stories,
           bedrooms: listing.property.bedrooms,
-          halfBaths: listing.property.bathsHalf,
-          fullBaths: listing.property.bathsFull,
+          bathsHalf: listing.property.bathsHalf,
+          bathsFull: listing.property.bathsFull,
           mlsId: listing.mlsId,
           listDate: listing.listDate,
           listPrice: listing.listPrice,

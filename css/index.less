@@ -1,0 +1,102 @@
+
+@reside-grey: #3c342f;
+@reside-grey-light: #a3a3a3;
+@reside-white: #ffffff;
+@reside-blue-dark: #394041;
+@reside-blue: #779598;
+@reside-blue-light: fade(@reside-blue, 20%);
+
+@grey-lightest: #eee;
+
+.reside-font-plain {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+.reside-font-bold {
+  font-family: Muli, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  background-color: @grey-lightest;
+  .reside-font-plain;
+  text-align: center;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+.hidden {
+  display: none;
+}
+
+.banner {
+  padding: 3rem;
+  background-color: @reside-grey;
+  color: @reside-white;
+  .reside-font-bold;
+  font-size: 3vw;
+  opacity: 0.9;
+}
+
+.open-house-list {
+  color: @reside-grey-light;
+  display: inline-block;
+}
+
+.open-house {
+  width: auto;
+  min-width: 18%;
+  margin: 1%;
+  padding: 2%;
+  padding-top: 1%;
+  background-color: @reside-white;
+  display: inline-block;
+}
+
+.open-house:hover {
+  -webkit-box-shadow: 0px 0px 2px 2px @reside-blue-light;
+  -moz-box-shadow: 0px 0px 2px 2px @reside-blue-light;
+  box-shadow: 0px 0px 2px 2px @reside-blue-light; 
+  cursor: pointer;
+}
+
+.open-house-details {
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+.open-house-detail-label {
+  text-align: left;
+}
+
+.open-house-detail-data {
+  color: @reside-blue-dark;
+  font-weight: 700;
+  text-align: right;
+}
+
+.open-house-image {
+  width: 40vh;
+  height: 30vh;
+  background-color: @reside-white;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.open-house-price {
+  color: @reside-blue;
+  font-size: 2.4rem;
+}
+
