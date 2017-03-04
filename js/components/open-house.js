@@ -44,16 +44,38 @@ var OpenHouse = React.createClass({
     var prettyPrice = formatter.format(this.props.listing.listPrice);
 
     return (
-      <ul className="open-house">
+      <div className="open-house">
         <div onClick={this.addToDatabase} className="open-house-image" style={backgroundImage}></div>
-        <li className="open-house-detail open-house-price">{prettyPrice}</li>
-        <li className="open-house-detail open-house-beds">Bedrooms: {this.props.listing.bedrooms}</li>
-        <li className="open-house-detail open-house-full-bath">Full baths: {this.props.listing.bathsFull}</li>
-        <li className="open-house-detail open-house-half-bath">Half baths: {this.props.listing.bathsHalf}</li>
-        <li className="open-house-detail open-house-stories">Stories: {this.props.listing.stories}</li>
-        <li className="open-house-detail open-house-mls-id">MLS ID: {this.props.listing.mlsId}</li>
-        <li className="open-house-detail open-house-list-date">Listed: {prettyListDate}</li>
-      </ul>
+        <p className="open-house-price">{prettyPrice}</p>
+        <table className="open-house-details">
+          <tbody>
+          <tr>
+            <td className="open-house-detail-label"> Bedrooms: </td>
+            <td className="open-house-detail-data">{this.props.listing.bedrooms}</td>
+          </tr>
+          <tr>
+            <td className="open-house-detail-label"> Full baths: </td>
+            <td className="open-house-detail-data">{this.props.listing.bathsFull}</td>
+          </tr>
+          <tr>
+            <td className="open-house-detail-label"> Half baths: </td>
+            <td className="open-house-detail-data">{this.props.listing.bathsHalf}</td>
+          </tr>
+          <tr>
+            <td className="open-house-detail-label"> Stories: </td>
+            <td className="open-house-detail-data">{this.props.listing.stories}</td>
+          </tr>
+          <tr>
+            <td className="open-house-detail-label"> MLS ID: </td>
+            <td className="open-house-detail-data">{this.props.listing.mlsId}</td>
+          </tr>
+          <tr>
+            <td className="open-house-detail-label"> Listed: </td>
+            <td className="open-house-detail-data">{prettyListDate}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     );
   }
 });
